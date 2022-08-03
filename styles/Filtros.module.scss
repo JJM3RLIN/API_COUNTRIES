@@ -1,0 +1,59 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+.filtros{
+    margin: 2rem 0;
+    @include m.tablet{
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+    }
+    select{
+        border:none;
+        padding:  1rem 3rem;
+        font-size: 1.5rem;
+        @include m.tablet{
+            padding:  1.5rem 3rem;
+        }
+    }
+}
+.campo, .filtros select{
+    background-color: v.$blanco;
+    outline: v.$blanco;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    box-shadow: 1px 3px 12px -2px v.$grisOscuro;
+    -webkit-box-shadow: 1px 3px 12px -2px v.$grisOscuro;
+     -moz-box-shadow: 1px 3px 12px -2px  v.$grisOscuro;
+}
+  
+    .campo{
+       display: flex;
+        align-items: center;
+        gap: 1rem;
+       @include m.tablet{
+        width: 50rem;
+       }
+        margin-bottom: 2rem;
+        padding: 1rem ;
+       padding-left: 1.7rem;
+        @include m.tablet{
+            width:auto;
+            margin-bottom: auto;
+        }
+        &:first-child{
+            color: v.$grisOscuro;
+        }
+        input{
+            display: block;
+            border: v.$blanco;
+            font-size: 1.7rem;
+            padding: 1rem 3rem;
+            padding-left: .5rem;
+            border: none;
+           max-width: 100%;
+            &:focus{
+                outline: v.$blanco;
+            }
+        }
+    }
+   

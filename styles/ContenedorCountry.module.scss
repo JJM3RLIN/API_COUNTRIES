@@ -1,0 +1,44 @@
+@use 'base/variables' as v;
+.card{
+    background-color: v.$blanco;
+    box-shadow: 1px 3px 12px -2px v.$grisOscuro;
+    -webkit-box-shadow: 1px 3px 12px -2px v.$grisOscuro;
+    -moz-box-shadow: 1px 3px 12px -2px  v.$grisOscuro;
+    transform: translate(0);
+    transition: transform .5s ease-out;
+    width: 100%;
+    cursor: pointer;
+    height: 100%;
+    &:hover{
+        margin-top: 1rem;
+       transform: translateY(-20px);
+    }
+    img{
+        max-height: 10rem;
+    }
+    .info{
+        padding: 1rem 2rem;
+        padding-bottom: 5rem;
+
+        p{
+            font-weight: v.$media;
+            margin: 0;
+            font-size: 2rem;
+            line-height: 1.5;
+            span{
+                font-weight: v.$ligera;
+            }
+        }
+        .nombre{
+            font-weight: v.$bold;
+            font-size: 2.5rem;
+            margin: 1.5rem 0;
+            transition: color .3s ease-in;
+            &:hover{
+                cursor: pointer;
+                color: lighten($color: v.$negro, $amount: 50%);
+            }
+        }
+    }
+}
+

@@ -1,0 +1,65 @@
+@use 'base/variables' as v;
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  font-size: 2rem;
+  font-family: v.$fuentePrincipal;
+  line-height: 1.5;
+  background-color: v.$grisClaro;
+  transition: all .5s ease-out;
+}
+a{
+  text-decoration: none;
+  color: v.$negro;
+}
+button{
+  cursor: pointer;
+}
+[class*="contenedor"]{
+  margin: 0 auto;
+  max-width: 120rem;
+  width: 90%;
+}
+[class*="box"]{
+     display: inline-block;
+     background-color: v.$blanco;
+     text-align: center;
+     border-radius: .5rem;
+     padding: .8rem 3rem;
+     box-shadow: 1px 3px 12px -2px v.$grisOscuro;
+    -webkit-box-shadow: 1px 3px 12px -2px v.$grisOscuro;
+     -moz-box-shadow: 1px 3px 12px -2px  v.$grisOscuro
+}
+
+.darkMode{
+  transition: all .3s ease-out;
+  background-color: v.$azulOscuroBg;
+    color: v.$blanco;
+    .select, .mode, [class*="box"]{
+      background-color: v.$azulOscuro;
+      color: v.$blanco;
+      box-shadow: 1px 3px 12px -2px v.$azul;
+      -webkit-box-shadow: 1px 3px 12px -2px v.$azul;
+       -moz-box-shadow: 1px 3px 12px -2px  v.$azul;
+    }
+    button{
+      color: v.$blanco;
+      
+    }
+    
+    .mode{
+       input{ 
+        background-color: v.$azulOscuro;
+        color: v.$blanco;
+      }
+    }
+    .bi, .biDark{
+      fill:  v.$blanco  !important;
+    }
+  }

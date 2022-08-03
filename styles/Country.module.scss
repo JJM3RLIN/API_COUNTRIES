@@ -1,0 +1,57 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.enlaceBack{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: max-content;
+    padding: .5rem 1.5rem;
+    margin: 3rem 0;
+  
+}
+.contenido{
+    @include m.tablet{
+      display: grid;
+      grid-template-columns: 1.5fr 3fr;
+      align-items: center;
+      column-gap: 4rem;
+    }
+}
+.contenedorInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    @include m.tablet{
+      @include m.grid(2, 2rem);
+      column-gap: 6rem;
+      place-items: unset;
+      align-items: center;
+    }
+}
+
+.info{
+   
+    .nombre{
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        @include m.tablet{
+            font-size: 4rem;
+        }
+    }
+    p{
+        font-weight: v.$media;
+        margin: 0;
+       margin-bottom: 1.3rem;
+        span{
+            font-weight: v.$ligera;
+        }
+    }
+}
+.InfoSecond{
+ margin-top: .2rem;
+    @include m.tablet{
+        margin-top: 0;
+        transform: translateY(2rem);
+    }
+}

@@ -1,0 +1,31 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+.borders{
+    [class*=box]{
+       font-size: 1.5rem;
+       @include m.tablet{
+        font-size: 2rem;
+       }
+    }
+    @include m.tablet{
+        display: flex;
+        gap: 2rem;
+        grid-column: 1 / 3;
+    }
+    h3{
+        font-weight: v.$media;
+        font-size: 1.9rem;
+        @include m.tablet{
+           
+            font-size: 2.2rem;
+        }
+    }
+}
+.listBorders{
+    @include m.grid(2, 2rem);
+    max-width: 40rem;
+    @include m.tablet{
+        @include m.grid(3, 2rem);
+        max-width: 100%;
+    }
+}
