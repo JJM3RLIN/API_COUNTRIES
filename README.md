@@ -19,7 +19,9 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshots/*.jpge)
+![](./screenshots/light.jpeg)
+![](./screenshots/dark.jpge)
+![](./screenshots/country.jpeg)
 
 
 
