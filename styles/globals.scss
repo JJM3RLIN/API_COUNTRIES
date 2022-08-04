@@ -41,7 +41,7 @@ button{
   transition: all .3s ease-out;
   background-color: v.$azulOscuroBg;
     color: v.$blanco;
-    .select, .mode, [class*="box"]{
+    .selectFiltro, .mode, [class*="box"]{
       background-color: v.$azulOscuro;
       color: v.$blanco;
       box-shadow: 1px 3px 12px -2px v.$azul;

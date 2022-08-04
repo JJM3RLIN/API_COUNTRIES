@@ -95,7 +95,7 @@ const Filtros = ({ setFilterName , setFilterRegion  })=>{
                 ]
             }),
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("select", {
-                className: "select",
+                className: "selectFiltro",
                 onChange: (e)=>setFilterRegion(e.target.value.trim()),
                 children: [
                     /*#__PURE__*/ jsx_runtime_.jsx("option", {

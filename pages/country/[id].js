@@ -11,7 +11,7 @@ const Country = ({country}) => {
 
 
   return (
-    <Layout titulo={name.common} icono={flags.svg}> 
+    <Layout titulo={name.common}> 
         <div className='contenedor'>
            <Link href='/'>
             <a href='#' className={`box ${styles.enlaceBack}`}>

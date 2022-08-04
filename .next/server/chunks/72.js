@@ -44,7 +44,7 @@ var Layout_module_default = /*#__PURE__*/__webpack_require__.n(Layout_module);
 
 
 
-const Layout = ({ titulo , children , icono  })=>{
+const Layout = ({ titulo , children  })=>{
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
         children: [
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)((head_default()), {
@@ -57,7 +57,7 @@ const Layout = ({ titulo , children , icono  })=>{
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx("link", {
                         rel: "icon",
-                        href: icono ? icono : "/favicon.ico"
+                        href: "/favicon.ico"
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx("link", {
                         rel: "preconnect",

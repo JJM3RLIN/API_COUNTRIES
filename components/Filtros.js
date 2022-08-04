@@ -15,7 +15,7 @@ const Filtros = ({setFilterName, setFilterRegion}) => {
     />
     </div>
 
-  <select className='select' onChange={(e)=>setFilterRegion(e.target.value.trim())}>
+  <select className='selectFiltro' onChange={(e)=>setFilterRegion(e.target.value.trim())}>
     <option disabled selected value=''>Filter By Region</option>
     <option value=''>All</option>
     <option value='Africa'>Africa</option>

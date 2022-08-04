@@ -110,7 +110,6 @@ const Country = ({ country  })=>{
     const moneda = currencies ? Object.values(currencies)[0] : "";
     return /*#__PURE__*/ jsx_runtime_.jsx(Layout/* default */.Z, {
         titulo: name.common,
-        icono: flags.svg,
         children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
             className: "contenedor",
             children: [

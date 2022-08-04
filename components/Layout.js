@@ -1,12 +1,12 @@
 import Head from "next/head";
 import activarDarkMode from "../helpers/ActivarDarkMode";
 import styles from '../styles/Layout.module.scss';
-const Layout = ({titulo, children, icono}) => {
+const Layout = ({titulo, children}) => {
   return (
     <>
     <Head>
         <title>Countries | {titulo}</title>
-        <link rel="icon" href={icono ? icono : "/favicon.ico"} />
+        <link rel="icon" href= "/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" crossOrigin  href="https://fonts.gstatic.com"/>
         <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet" />
