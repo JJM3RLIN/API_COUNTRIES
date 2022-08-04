@@ -5,63 +5,50 @@ import Filtros from '../components/Filtros';
 import ContenedorCountry from '../components/ContenedorCountry';
 import styles from '../styles/Home.module.scss'
 
-export default function Home({countries}) {
+export default function Home({countries, slice}) {
      //Filtros
  const [filterName, setFilterName] = useState('');
  const [filterRegion, setFilterRegion] = useState('');
   //Arreglo que contendra los países filtrados
- const [paisesFiltrados, setPaisesFiltrados] = useState([]);
+ const [paisesFiltrados, setPaisesFiltrados] = useState(slice);
   useEffect(()=>{
-    let filtrados = [];
-    if(filterName !== '' && filterRegion !== ''){
-      filtrados = countries.filter(country=>{
-        if(country.name.common.toLowerCase().includes(filterName) && country.region === filterRegion){
-          return country;
-        }
-      } );
-    }
-    else if(filterName !== ''){
-      filtrados = countries.filter(country=>{
-        if(country.name.common.toLowerCase().includes(filterName) ){
-          return country;
-        }
-      } );
-    }
-   else if(filterRegion !== ''){
-      filtrados = countries.filter(country=>country.region === filterRegion );
-    }
  
-   setPaisesFiltrados(filtrados);
-  }, [filterName, filterRegion])
+    if(filterName !== '' && filterRegion !== '')
+    setPaisesFiltrados(countries.filter(country=>country.name.common.toLowerCase().includes(filterName) && country.region === filterRegion ));
+  
+    else if(filterName !== '')
+      setPaisesFiltrados( countries.filter(country=>country.name.common.toLowerCase().includes(filterName) ))
+    
+   else if(filterRegion !== '')
+      setPaisesFiltrados( countries.filter(country=>country.region === filterRegion ));
+    
+  }, [filterName, filterRegion, countries])
+
   return (
     <Layout titulo='Home'>
     <Filtros setFilterName={setFilterName} setFilterRegion={setFilterRegion} />
    <div className={styles.listado}>
     {
-      filterName !== '' || filterRegion !== '' ?
-      paisesFiltrados.length === 0 ? <p>That county doesn&apos;t exist</p> :
+      paisesFiltrados.length === 0 ? <p>That Country does no exist</p> :
       paisesFiltrados.map(country =>(
-        <ContenedorCountry key={country.name.official} country={country} />
-      ))
-
-      :
-      countries.map(country =>(
-        <ContenedorCountry key={country.name.official} country={country} />
+        <ContenedorCountry key={country.name.official} country={country}/>
       ))
     }
    </div>
+
     </Layout>
   )
 }
 export async function getServerSideProps(){
 
-    const url = "https://restcountries.com/v3.1/all";
+    const url = "https://restcountries.com/v3.1/all?fields=region,capital,population,name,flags";
     const respuesta = await fetch(url);
     const countries = await respuesta.json();
-
+   const slice = countries.slice(0,15);
   return {
     props:{
-      countries
+      countries,
+      slice
     }
   }
 }

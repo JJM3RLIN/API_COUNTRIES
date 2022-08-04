@@ -1,4 +1,3 @@
-import  Image from 'next/image';
 import styles from '../styles/Filtros.module.scss';
 const Filtros = ({setFilterName, setFilterRegion}) => {
 
@@ -16,8 +15,7 @@ const Filtros = ({setFilterName, setFilterRegion}) => {
     </div>
 
   <select className='selectFiltro' onChange={(e)=>setFilterRegion(e.target.value.trim())}>
-    <option disabled selected value=''>Filter By Region</option>
-    <option value=''>All</option>
+    <option value=''>Filter by Region</option>
     <option value='Africa'>Africa</option>
     <option value='Americas'>America</option>
     <option value='Asia'>Asia</option>

@@ -2,7 +2,6 @@ import Layout from '../../components/Layout';
 import  Borders  from '../../components/Borders';
 import Image from 'next/image';
 import Link from 'next/link';
-import formatoNumero from '../../helpers/formatoNumeros';
 import styles from '../../styles/Country.module.scss';
 const Country = ({country}) => {
 
@@ -12,7 +11,7 @@ const Country = ({country}) => {
 
   return (
     <Layout titulo={name.common}> 
-        <div className='contenedor'>
+        
            <Link href='/'>
             <a href='#' className={`box ${styles.enlaceBack}`}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
@@ -21,14 +20,14 @@ const Country = ({country}) => {
                Back</a>
             </Link>
            <div className={styles.contenido}>
-            <div>
-            <Image src={flags.svg} width={600} height={400} alt={`${name.common} flag`} priority layout='responsive' />
+            <div className={styles.imagen}>
+            <Image src={flags.svg} layout="intrinsic" width={320} height={181} alt={`${name.common} flag`} priority />
             </div>
             <div className={styles.contenedorInfo}>
               <section className={styles.info}>
                <h2 className={styles.nombre}>{name.common}</h2>
                 <p>Native Name: <span>{altSpellings[2] ?? name.common}</span></p>
-                <p>Population: <span>{formatoNumero(population)}</span></p>
+                <p>Population: <span>{population.toLocaleString('en-US')}</span></p>
                 <p>Region: <span>{region}</span></p>
                 <p>Sub Region: <span>{subregion ?? "This country hasn't Sub Region"}</span></p>
                 <p>Capital: <span>{capital ?? "This country hasn't capital"}</span></p>
@@ -42,15 +41,15 @@ const Country = ({country}) => {
                 {
                   moneda?.symbol &&  <p>Currencie symbol: <span>{moneda.symbol}</span></p>
                 }
-                {languages &&
+              
                   <p>Lenguages:  
-                  {' '}<span>
+                  <span>
                   {
-                    Object.values(languages).join(', ')
+                  languages ? ' ' + Object.values(languages).join(', ') : ''
                   }
                   </span>
                 </p>
-                }
+            
               </section>
                {
                country[0]?.borders && (
@@ -59,13 +58,12 @@ const Country = ({country}) => {
                }
             </div>
            </div>
-        </div>
     </Layout>
   )
 }
 export async function getStaticPaths() {
   //Todos los valores de la API para que haga las paginas y sea mas rapido
-  const url = 'https://restcountries.com/v3.1/all';
+  const url = 'https://restcountries.com/v3.1/all?fields=name,capital,population,region,flags,subregion,tld,currencies,languages,borders,altSpellings';
   const respuesta = await fetch(url);
   const resultado = await respuesta.json();
 //ya que las rutas se basan en el nombre

@@ -4,26 +4,29 @@
     box-shadow: 1px 3px 12px -2px v.$grisOscuro;
     -webkit-box-shadow: 1px 3px 12px -2px v.$grisOscuro;
     -moz-box-shadow: 1px 3px 12px -2px  v.$grisOscuro;
-    transform: translate(0);
     transition: transform .5s ease-out;
-    width: 100%;
-    cursor: pointer;
-    height: 100%;
+    max-width: 100%;
+    padding-bottom: 5rem;
+    max-height: 100%;
     &:hover{
+        cursor: pointer;
         margin-top: 1rem;
        transform: translateY(-20px);
     }
-    img{
-        max-height: 10rem;
+    .imagen{
+        max-width: 100%;
+        img{
+           max-height: 100%;
+            max-width: 100%;
+            object-fit: cover;
+        }
     }
-    .info{
-        padding: 1rem 2rem;
-        padding-bottom: 5rem;
-
+        
         p{
             font-weight: v.$media;
             margin: 0;
             font-size: 2rem;
+            padding-left: 2rem;
             line-height: 1.5;
             span{
                 font-weight: v.$ligera;
@@ -34,11 +37,7 @@
             font-size: 2.5rem;
             margin: 1.5rem 0;
             transition: color .3s ease-in;
-            &:hover{
-                cursor: pointer;
-                color: lighten($color: v.$negro, $amount: 50%);
-            }
         }
-    }
+  
 }
 

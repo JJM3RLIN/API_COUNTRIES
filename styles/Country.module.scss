@@ -18,6 +18,10 @@
       column-gap: 4rem;
     }
 }
+.imagen{
+    width: 100%;
+    object-fit: cover;
+}
 .contenedorInfo{
     display: flex;
     flex-direction: column;
