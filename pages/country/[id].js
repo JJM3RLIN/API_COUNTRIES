@@ -3,10 +3,9 @@ import  Borders  from '../../components/Borders';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../../styles/Country.module.scss';
-const Country = ({country}) => {
+const Country = ({country, nameBorders}) => {
     const {name, capital, population, region, flags, subregion, tld, currencies, languages, borders, altSpellings} = country[0];
     const moneda = currencies ? Object.values(currencies)[0] : '';
-
 
   return (
     <Layout titulo={name.common}> 
@@ -52,7 +51,7 @@ const Country = ({country}) => {
               </section>
                {
                country[0]?.borders && (
-                <Borders borders={borders} />
+                <Borders borders={nameBorders} />
                )
                }
             </div>
@@ -67,7 +66,7 @@ export async function getStaticPaths() {
   const resultado = await respuesta.json();
 //ya que las rutas se basan en el nombre
   const paths = resultado.map(country =>({
-    params:{id:country.cca3}
+    params:{id:country.name.common}
   }));
   //Retornamos la rutas
   return{
@@ -78,12 +77,23 @@ export async function getStaticPaths() {
   
   //Obtenemos automaticamente el id de la url
   export async function getStaticProps({ params:{id} }) {
-    const url = `https://restcountries.com/v3.1/alpha/${id}`;
+    const url = `https://restcountries.com/v3.1/name/${id}`;
     const respuesta = await fetch(url);
     const country = await respuesta.json();
+
+    let nameBorders = '';
+    if(country[0].borders){
+      const borders = country[0].borders.join(',');
+      const urlB = `https://restcountries.com/v3.1/alpha?fields=name&codes=${borders}`;
+      const respuestaB = await fetch(urlB);
+       nameBorders = await respuestaB.json();
+    }
+  
+
     return {
         props:{
-           country
+           country,
+           nameBorders
         }
     }
   }

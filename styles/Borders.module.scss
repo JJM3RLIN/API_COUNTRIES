@@ -2,9 +2,11 @@
 @use 'base/variables' as v;
 .borders{
     [class*=box]{
-       font-size: 1.5rem;
+       font-size: 1.7rem;
+       width: 100%;
+       padding: 1rem;
        @include m.tablet{
-        font-size: 2rem;
+        font-size: 1.5rem;
        }
     }
     @include m.tablet{
