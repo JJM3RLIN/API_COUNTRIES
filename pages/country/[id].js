@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../../styles/Country.module.scss';
 const Country = ({country}) => {
-
     const {name, capital, population, region, flags, subregion, tld, currencies, languages, borders, altSpellings} = country[0];
     const moneda = currencies ? Object.values(currencies)[0] : '';
 
@@ -63,12 +62,12 @@ const Country = ({country}) => {
 }
 export async function getStaticPaths() {
   //Todos los valores de la API para que haga las paginas y sea mas rapido
-  const url = 'https://restcountries.com/v3.1/all?fields=name,capital,population,region,flags,subregion,tld,currencies,languages,borders,altSpellings';
+  const url = 'https://restcountries.com/v3.1/all?fields=name,capital,population,region,flags,subregion,tld,currencies,languages,borders,altSpellings,cca3';
   const respuesta = await fetch(url);
   const resultado = await respuesta.json();
 //ya que las rutas se basan en el nombre
-  const paths = resultado.map(countrie =>({
-    params:{id:countrie.name.common}
+  const paths = resultado.map(country =>({
+    params:{id:country.cca3}
   }));
   //Retornamos la rutas
   return{
@@ -79,7 +78,7 @@ export async function getStaticPaths() {
   
   //Obtenemos automaticamente el id de la url
   export async function getStaticProps({ params:{id} }) {
-    const url = `https://restcountries.com/v3.1/name/${id}`;
+    const url = `https://restcountries.com/v3.1/alpha/${id}`;
     const respuesta = await fetch(url);
     const country = await respuesta.json();
     return {

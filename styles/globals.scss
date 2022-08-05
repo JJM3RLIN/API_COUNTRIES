@@ -35,7 +35,11 @@ button{
      padding: .8rem 3rem;
      box-shadow: 1px 3px 12px -2px v.$grisOscuro;
     -webkit-box-shadow: 1px 3px 12px -2px v.$grisOscuro;
-     -moz-box-shadow: 1px 3px 12px -2px  v.$grisOscuro
+     -moz-box-shadow: 1px 3px 12px -2px  v.$grisOscuro;
+     transition: background .3s ease-in-out;
+     &:hover{
+      background-color: darken($color: v.$blanco, $amount: 1.8%)
+     }
 }
 
 .darkMode{
@@ -48,6 +52,12 @@ button{
       box-shadow: 1px 3px 12px -2px v.$azul;
       -webkit-box-shadow: 1px 3px 12px -2px v.$azul;
        -moz-box-shadow: 1px 3px 12px -2px  v.$azul;
+    }
+    [class*="box"]{
+      transition: background .3s ease-in-out;
+     &:hover{
+      background-color: darken($color: v.$azulOscuro, $amount: 2%)
+     }
     }
     button{
       color: v.$blanco;

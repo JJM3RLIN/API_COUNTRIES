@@ -41,7 +41,7 @@ export default function Home({countries, slice}) {
 }
 export async function getServerSideProps(){
 
-    const url = "https://restcountries.com/v3.1/all?fields=region,capital,population,name,flags";
+    const url = "https://restcountries.com/v3.1/all?fields=region,capital,population,name,flags,cca3";
     const respuesta = await fetch(url);
     const countries = await respuesta.json();
    const slice = countries.slice(0,15);

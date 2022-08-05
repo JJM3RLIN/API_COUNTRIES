@@ -1,7 +1,9 @@
-
+import Link from "next/link";
 const Border = ({border}) => {
   return (
-  <div className="box">{border}</div>
+    <Link href={`/country/${border}`}>
+       <a href="#" className="box">{border}</a>
+    </Link>
   )
 }
 
