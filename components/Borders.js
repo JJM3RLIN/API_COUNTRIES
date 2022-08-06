@@ -1,7 +1,7 @@
 import Border from "./Border";
 import styles from '../styles/Borders.module.scss';
 const Borders = ({borders}) => {
-  console.log(borders)
+
   return (
   <section className={styles.borders}>
     <h3>Border Countries: </h3>

@@ -26,7 +26,7 @@ export default function Home({countries, slice}) {
 
   return (
     <Layout titulo='Home'>
-    <Filtros setFilterName={setFilterName} setFilterRegion={setFilterRegion} />
+    <Filtros setFilterName={setFilterName} setFilterRegion={setFilterRegion}  filterRegion={filterRegion} />
    <div className={styles.listado}>
     {
       paisesFiltrados.length === 0 ? <p>That Country does no exist</p> :

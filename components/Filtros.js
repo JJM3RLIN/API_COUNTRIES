@@ -1,6 +1,7 @@
 import styles from '../styles/Filtros.module.scss';
 const Filtros = ({setFilterName, setFilterRegion}) => {
 
+
   return (
     <div className={styles.filtros}>
     <div className={`${styles.campo} mode`}>
@@ -14,7 +15,7 @@ const Filtros = ({setFilterName, setFilterRegion}) => {
     />
     </div>
 
-  <select className='selectFiltro' onChange={(e)=>setFilterRegion(e.target.value.trim())}>
+  <select className='selectFiltro'onChange={(e)=>setFilterRegion(e.target.value.trim())}>
     <option value=''>Filter by Region</option>
     <option value='Africa'>Africa</option>
     <option value='Americas'>America</option>

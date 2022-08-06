@@ -1,8 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import '../styles/globals.scss'
 
 function MyApp({ Component, pageProps }) {
-
+const [anchoPantalla, setAnchoPantalla] = useState('');
   useEffect(()=>{
     const tieneDark = window.matchMedia( '(prefers-color-scheme: dark )' );
     if(tieneDark.matches) { 
@@ -20,8 +20,10 @@ function MyApp({ Component, pageProps }) {
               document.body.classList.remove('darkMode');
           }
         })
+      
+
   }, []);
-  return <Component {...pageProps} />
+  return <Component {...pageProps}  />
 }
 
 export default MyApp
